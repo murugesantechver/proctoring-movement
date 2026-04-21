@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Virtual Proctoring Results Pending</title>
+    <style>
+        .virtual-proctoring-container {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .email-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background-color: white;
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            width: 80%;
+            height: 80%;
+            margin-right: 10px;
+        }
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #0066cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .company-tagline {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .update-section {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .update-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkmark-circle {
+            width: 25px;
+            height: 25px;
+            /* background-color: #28a745; */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 6px;
+        }
+
+        .update-title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .greeting {
+            margin: 0 0 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .update-message {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .highlighted-box {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .no-action-message {
+            margin: 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .thanks-message {
+            margin: 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+    .email-footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    color: #666;
+}
+
+.support-info {
+    margin: 0 0 10px 0;
+}
+
+.support-link {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.support-link:hover {
+    text-decoration: underline;
+}
+
+.company-address,
+.policies {
+    margin: 8px 0;
+}
+
+.automated-message {
+    margin: 0;
+    font-style: italic;
+}
+        .status-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid green;
+            position: relative;
+            margin-right: 8px;
+            vertical-align: middle;
+            }
+
+        .status-icon::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid green;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            }
+    </style>
+</head>
+<body class="virtual-proctoring-container">
+    <div class="email-wrapper">
+        <!-- Header -->
+        <div class="email-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://proctoring-client-uploads-west.s3.us-west-2.amazonaws.com/assets/bis-logo.png" alt="BIS Logo" class="logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Proctoring Update Section -->
+        <div class="update-section">
+            <div class="update-header">
+                <div class="checkmark-circle"> 
+                    <!-- <span>
+                        ✅
+                    </span> -->
+                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NaCfAJtzjP-oa45zd7M1j5FwbA5QBphzgF9284rBdhyxr1oq8H81MYf-v0m1xHk1N536PIRWDkTI4HVLQwTfViXcORVmWWKKKjcVG6LU0aitT99lOjXph1ovuRV8bE=s0-d-e1-ft#https://staging.bissafety.app/images/EmailNotif_Icon_Completion55x55.png" width="30" class="CToWUd" data-bit="iit">
+                </div>
+                <h1 class="update-title">
+                    Virtual Proctoring Results Pending
+                </h1>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <p class="update-message">
+                Thank you for finishing <strong>{{course_name}}!</strong> Your course completion certificate will be updated to include a virtual proctoring stamp after your virtual proctoring session has been reviewed and validated. If your session was found invalid due to proctoring rule violations, the virtual proctoring verification stamp will not be added to the certificate.
+            </p>
+            <p class="update-message">
+                Your proctoring session results will be available within 24 hours. Please contact your administrator if you have any questions. 
+            </p>
+            <p class="thanks-message">
+                Thanks kindly!
+            </p>
+        </div>
+
+<!-- Footer -->
+<div class="email-footer">
+    <p class="support-info">
+        If you have any questions or believe you received this email in error, please contact our Support Team 
+        by phone at 1-866-416-1660 or by email at
+        <a href="mailto:{{supportMail}}" class="support-link">
+            {{supportMail}}
+        </a>.
+    </p>
+
+    <!-- Added company address -->
+    <p class="company-address">
+        BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada
+    </p>
+
+    <!-- Added terms & privacy -->
+    <p class="policies">
+        <a href="{{termsUrl}}" class="support-link" target="_blank">Terms and Conditions</a> |
+        <a href="{{privacyUrl}}" class="support-link" target="_blank">Privacy Policy</a>
+    </p>
+
+    <!-- Final automated message -->
+    <p class="automated-message">
+        This is an automated email message. Please do not reply to this email address.
+    </p>
+</div>
+    </div>
+</body>
+</html>

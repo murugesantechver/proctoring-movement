@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Verification Required</title>
+  <style>
+    .virtual-proctoring-container {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    .email-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .email-header {
+      background-color: white;
+      padding: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      width: 80%;
+      height: 80%;
+      margin-right: 10px;
+    }
+
+    .update-section {
+      background-color: #f8f9fa;
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .update-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkmark-circle img {
+      width: 30px;
+    }
+
+    .update-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .main-content {
+      padding: 20px;
+    }
+
+    .update-message {
+      margin: 0 0 15px 0;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .thanks-message {
+      margin: 20px 0;
+      color: #333;
+      font-size: 14px;
+    }
+
+.email-footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 12px;
+  color: #666;
+}
+
+.support-info {
+  margin: 0 0 10px 0;
+}
+
+.company-info {
+  margin: 0 0 6px 0;
+}
+
+.policy-links {
+  margin: 0 0 10px 0;
+}
+
+.support-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.support-link:hover {
+  text-decoration: underline;
+}
+
+.automated-message {
+  margin: 0;
+  font-style: italic;
+}
+
+  </style>
+</head>
+<body class="virtual-proctoring-container">
+  <div class="email-wrapper">
+    <!-- Header -->
+    <div class="email-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <img
+            src="https://proctoring-client-uploads-west.s3.us-west-2.amazonaws.com/assets/bis-logo.png"
+            alt="BIS Logo"
+            class="logo"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Update Section -->
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <p class="update-message">Hello,</p>
+      <p class="update-message">
+        <strong>{{user_name}}</strong> has successfully completed the course
+        "<strong>{{course_name}}</strong>" and requires manual verification.
+      </p>
+      <p class="update-message">
+        Please complete the verification process at your earliest convenience.
+      </p>
+      <p class="thanks-message">Thanks kindly,<br />BIS Safety Software</p>
+    </div>
+
+<!-- Footer -->
+<div class="email-footer">
+  <p class="support-info">
+    If you do not believe this message is valid or if you have any
+    questions, please contact the Support Team by calling
+    <strong>1-866-416-1660</strong> or emailing
+    <a href="mailto:{{supportMail}}" class="support-link">{{supportMail}}</a>.
+  </p>
+
+  <!-- Added company address -->
+  <p class="company-info">
+    BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada
+  </p>
+
+  <!-- Added Terms & Privacy -->
+  <p class="policy-links">
+    <a href="{{termsUrl}}" class="support-link">Terms and Conditions</a> |
+    <a href="{{privacyUrl}}" class="support-link">Privacy Policy</a>
+  </p>
+
+  <!-- Automated message -->
+  <p class="automated-message">
+    This is an automated email message. Please do not reply to this email address.
+  </p>
+</div>
+  </div>
+</body>
+</html>

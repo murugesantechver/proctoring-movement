@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Verification Required</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f9fafb;
+      padding: 32px 16px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 672px;
+      margin: 0 auto;
+    }
+    .card {
+      background-color: white;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .header {
+      background-color: white;
+      padding: 32px 32px 24px;
+      text-align: center;
+    }
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .logo {
+      width: 160px;
+    }
+    .content {
+      padding: 0 32px 32px;
+    }
+    .greeting-section {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .violation-message {
+      background-color: #f9fafb;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .violation-text {
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+  .footer-section {
+    text-align: left;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px;
+  }
+  .footer-text {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .footer-link {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  .footer-link:hover {
+    color: #1d4ed8;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- Header with Logo -->
+      <div class="header">
+        <div class="logo-section">
+          <img src="https://proctoring-client-uploads-west.s3.us-west-2.amazonaws.com/assets/bis-logo.png"
+               alt="BIS Logo" class="logo">
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <div class="greeting-section">
+          <p class="violation-text">Hello,</p>
+
+          <div class="violation-message">
+            <p class="violation-text">
+              <strong>{{user_name}}</strong> has resubmitted their ID for verification. 
+            </p>
+            <p class="violation-text">Please review the submitted ID and confirm the verification status.
+             </p>
+          </div>
+
+          <p class="violation-text">Thanks kindly,</p>
+          <p class="violation-text"><strong>BIS Safety Software</strong></p>
+        </div>
+
+<!-- Footer -->
+<div class="footer-section">
+  <p class="footer-text">
+    If you do not believe these violations are valid or if you have any questions, 
+    please contact the Support Team by phoning 
+    <strong>1-866-416-1660</strong> or emailing 
+    <a href="mailto:{{supportMail}}" class="footer-link">{{supportMail}}</a>.
+  </p>
+
+  <p class="footer-text">
+    BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada<br>
+    <a href="{{termsUrl}}" class="footer-link">Terms and Conditions</a> |
+    <a href="{{privacyUrl}}" class="footer-link">Privacy Policy</a>
+  </p>
+
+  <p class="footer-text">
+    This is an automated email message. Please do not reply to this email address.
+  </p>
+</div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

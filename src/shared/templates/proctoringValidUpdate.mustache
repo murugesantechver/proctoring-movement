@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Proctoring Update</title>
+    <style>
+        .virtual-proctoring-container {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .email-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background-color: white;
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            width: 80%;
+            height: 80%;
+            margin-right: 10px;
+        }
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #0066cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .company-tagline {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .update-section {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .update-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkmark-circle {
+            width: 25px;
+            height: 25px;
+            /* background-color: #28a745; */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 6px;
+        }
+
+        .update-title {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .greeting {
+            margin: 0 0 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .update-message {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .highlighted-box {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .no-action-message {
+            margin: 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .thanks-message {
+            margin: 20px 0;
+            color: #333;
+            font-size: 14px;
+        }
+.email-footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    color: #666;
+}
+
+.support-info {
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+}
+
+.support-link {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.address-line {
+    margin: 10px 0 6px 0;
+}
+
+.policy-links {
+    margin-bottom: 12px;
+}
+
+.policy-link {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.policy-link:hover {
+    text-decoration: none;
+}
+
+.automated-message {
+    margin: 0;
+    font-style: italic;
+}
+
+      .tick-div {
+        width: 45px;
+        height: 50px;
+      }
+    </style>
+</head>
+<body class="virtual-proctoring-container">
+    <div class="email-wrapper">
+        <!-- Header -->
+        <div class="email-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://proctoring-client-uploads-west.s3.us-west-2.amazonaws.com/assets/bis-logo.png" alt="BIS Logo" class="logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Proctoring Update Section -->
+        <div class="update-section">
+            <div class="update-header">
+                <!-- <div class="tick-div">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path fill="#4fa21f" d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM404.4 276.7C411.4 265.5 408 250.7 396.8 243.6C385.6 236.5 370.8 240 363.7 251.2L302.3 349.5L275.3 313.5C267.3 302.9 252.3 300.7 241.7 308.7C231.1 316.7 228.9 331.7 236.9 342.3L284.9 406.3C289.6 412.6 297.2 416.2 305.1 415.9C313 415.6 320.2 411.4 324.4 404.6L404.4 276.6z"/>
+                    </svg>
+               </div> -->
+               <div class="checkmark-circle"> 
+                    <!-- <span>
+                        ✅
+                    </span> -->
+                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NaCfAJtzjP-oa45zd7M1j5FwbA5QBphzgF9284rBdhyxr1oq8H81MYf-v0m1xHk1N536PIRWDkTI4HVLQwTfViXcORVmWWKKKjcVG6LU0aitT99lOjXph1ovuRV8bE=s0-d-e1-ft#https://staging.bissafety.app/images/EmailNotif_Icon_Completion55x55.png" width="30" class="CToWUd" data-bit="iit">
+ 
+                </div>
+                <h1 class="update-title">
+                    Virtual Proctoring Update
+                </h1>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <p class="greeting">
+                Hello {{participant_name}},
+            </p>
+
+            <p class="update-message">
+                Great news! Your proctoring session for <strong>{{course_name}} {{date}}</strong> was updated from Invalid to
+                <strong>Valid</strong>.
+                
+                {{#reason}}
+                    A human proctor verified and updated your session with the following reason:
+                {{/reason}}
+
+                {{^reason}}
+                    A human proctor verified and updated your session.
+                {{/reason}}
+            </p>
+
+
+            <!-- Highlighted Box -->
+            {{#reason}}
+                <div class="highlighted-box">
+                    {{reason}}
+                </div>
+            {{/reason}}
+
+            <p class="no-action-message">
+                No further action is required from you.
+            </p>
+
+            <p class="thanks-message">
+                Thanks kindly!
+            </p>
+        </div>
+
+<!-- Footer -->
+<div class="email-footer">
+    <p class="support-info">
+        If you have any questions or believe you received this email in error, please contact our Support Team 
+        by phone at 1-866-416-1660 or by email at 
+        <a href="mailto:{{supportMail}}" class="support-link">{{supportMail}}</a>.
+    </p>
+
+    <!-- Required extra lines before the last sentence -->
+    <p class="address-line">
+        BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada
+    </p>
+
+    <p class="policy-links">
+        <a href="{{termsUrl}}" class="policy-link" target="_blank">Terms and Conditions</a> |
+        <a href="{{privacyUrl}}" class="policy-link" target="_blank">Privacy Policy</a>
+    </p>
+
+    <!-- Last sentence -->
+    <p class="automated-message">
+        This is an automated email message. Please do not reply to this email address.
+    </p>
+</div>
+    </div>
+</body>
+</html>

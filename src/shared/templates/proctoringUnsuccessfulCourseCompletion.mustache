@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsuccessful Course Completion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        
+        .header {
+            background-color: white;
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            width: 40%;
+            height: 40%;
+            margin-right: 10px;
+        }
+        
+        .company-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        
+        .company-tagline {
+            font-size: 12px;
+            color: #666;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .violation-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .warning-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid red;
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 8px;
+            vertical-align: middle;
+            font-family: Arial, sans-serif;
+            line-height: 1;
+        }
+        
+        .violation-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        
+        .greeting {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .message-text {
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .view-button {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .view-button:hover {
+            background-color: #138496;
+        }
+        
+        .support-info {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .support-link {
+            color: #17a2b8;
+            text-decoration: none;
+        }
+        
+        .support-link:hover {
+            text-decoration: underline;
+        }
+.footer {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.footer-link {
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Logo -->
+        <div class="header">
+            <div class="logo-section">
+                <img src="https://proctoring-client-uploads-west.s3.us-west-2.amazonaws.com/assets/bis-logo.png" alt="BIS Logo" class="logo">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Violation Header -->
+            <div class="violation-header">
+                <table style="display:inline-block; vertical-align:middle; margin-right:8px;" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td style="width:20px; height:20px; border:2px solid red; border-radius:50%; text-align:center; font-size:14px; line-height:16px; color:red;">
+                        &#33;
+                      </td>
+                    </tr>
+                </table>
+                <h2 class="violation-title">Unsuccessful Course Completion</h2>
+            </div>
+
+            <!-- Email Content -->
+            <p class="greeting">Hello {{participant_name}},</p>
+           
+            
+            <p class="message-text">
+                Thank you for taking time to complete {{course_name}}. Unfortunately, you did not pass the course
+                due to virtual proctoring violations identified during your session.
+                Please click <strong>View</strong> to review the violations.
+            </p>
+
+            <!-- View Button -->
+            <a href={{Link}} class="view-button">View</a>
+
+            <!-- Support Information -->
+            <div class="support-info">
+                <p>
+                    If you do not believe these violations are valid or if you have any questions, please 
+                    contact the Support Team by phoning 1-866-416-1660 or emailing 
+                    <a href="mailto:{{supportMail}}" class="support-link">{{supportMail}}</a>.
+                </p>
+                
+                <p style="margin-top: 15px;">
+                    Thanks kindly!
+                </p>
+            </div>
+        </div>
+
+
+<!-- Footer -->
+<div class="footer">
+    <p>
+        If you have any questions or believe you received this email in error, please contact our Support Team by phone at 1-866-416-1660 
+        or by email at 
+        <a href="mailto:{{supportMail}}" class="footer-link">{{supportMail}}</a>.
+    </p>
+
+    <!-- Added lines -->
+    <p style="margin-top: 10px;">
+        BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada
+    </p>
+
+    <p>
+        <a href="{{termsUrl}}" class="footer-link" target="_blank">Terms and Conditions</a> | 
+        <a href="{{privacyUrl}}" class="footer-link" target="_blank">Privacy Policy</a>
+    </p>
+
+    <!-- Final sentence -->
+    <p style="margin-top: 10px;">
+        This is an automated email message. Please do not reply to this email address.
+    </p>
+</div>
+    </div>
+</body>
+</html>

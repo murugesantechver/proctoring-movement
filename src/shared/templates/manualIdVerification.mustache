@@ -1,0 +1,120 @@
+<html>
+  <style>
+    body {
+      font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .email-footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      font-size: 12px;
+      color: #666;
+      margin-top: 30px;
+    }
+
+    .support-info {
+      margin: 0 0 10px 0;
+    }
+
+    .company-info {
+      margin: 0 0 6px 0;
+    }
+
+    .policy-links {
+      margin: 0 0 10px 0;
+    }
+
+    .support-link {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .support-link:hover {
+      text-decoration: underline;
+    }
+
+    .automated-message {
+      margin: 0;
+      font-style: italic;
+    }
+  </style>
+
+  <body>
+    <div>
+      <img
+        src="https://ci3.googleusercontent.com/meips/ADKq_NaCfAJtzjP-oa45zd7M1j5FwbA5QBphzgF9284rBdhyxr1oq8H81MYf-v0m1xHk1N536PIRWDkTI4HVLQwTfViXcORVmWWKKKjcVG6LU0aitT99lOjXph1ovuRV8bE=s0-d-e1-ft#https://staging.bissafety.app/images/EmailNotif_Icon_Completion55x55.png"
+        width="30"
+      />
+      <br />
+      <h1 style="color: rgb(64, 68, 113);">Manual Participant ID Verification</h1>
+      <span style="color: gray;">{{date}}</span>
+    </div>
+
+    <div>
+      <p>Hello,</p>
+      <p>
+        The virtual proctor could not verify the identity of
+        <strong>{{participant_name}}</strong> with the government-issued photo ID
+        they provided.
+      </p>
+
+      <p>
+        They continued to take the online course <strong>{{course_name}}</strong>
+        on <strong>{{date}}</strong>.
+      </p>
+
+      <p>
+        Please verify the participant’s identity immediately. Their course
+        status will remain pending until your manual verification is complete.
+      </p>
+
+      <p>
+        <a
+          href="{{Link}}"
+          target="_blank"
+          style="
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #90ee90;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 1px solid #5cb85c;
+            font-family: sans-serif;
+          "
+          >Retake</a
+        >
+      </p>
+
+      <p>Thanks kindly,<br />BIS Safety Software</p>
+    </div>
+
+    <div class="email-footer">
+      <p class="support-info">
+        If you have any questions or believe you received this email in error,
+        please contact our Support Team by phone at <strong>1-866-416-1660</strong>
+        or by email at
+        <a href="mailto:{{supportMail}}" class="support-link"
+          >{{supportMail}}</a
+        >.
+      </p>
+
+      <p class="company-info">
+        BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada
+      </p>
+
+      <p class="policy-links">
+        <a href="{{termsUrl}}" class="support-link">Terms and Conditions</a> |
+        <a href="{{privacyUrl}}" class="support-link">Privacy Policy</a>
+      </p>
+
+      <p class="automated-message">
+        This is an automated email message. Please do not reply to this email
+        address.
+      </p>
+    </div>
+    <!-- ============================================================== -->
+  </body>
+</html>

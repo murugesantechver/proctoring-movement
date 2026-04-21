@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Verification Email</title>
+    <style>
+        * { 
+            margin: 0;        
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9fafb;
+            padding: 32px 16px;
+            line-height: 1.5;
+        }
+
+        .container { 
+            max-width: 672px; 
+            margin: 0 auto; 
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),
+                        0 4px 6px -2px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: white;
+            padding: 32px 32px 24px;
+            text-align: center;
+        }
+
+        .content { padding: 0 32px 32px; }
+
+        .greeting-section { text-align: center; margin-bottom: 24px; }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .violation-message {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .violation-text {
+            color: #374151;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .resubmit-button {
+            background-color: #15803d;
+            color: white !important;
+            padding: 12px 32px;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .resubmit-button:hover { background-color: #166534; }
+
+        .help-section { text-align: center; margin-bottom: 32px; }
+
+        .help-text { font-size: 14px; color: #6b7280; margin-bottom: 8px; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+            padding: 24px 24px 16px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer p { margin-bottom: 6px; }
+
+        .footer a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        
+        .footer a:hover { color: #1d4ed8; }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <!-- Header -->
+            <div class="header">
+                <img src="https://proctoring-client-uploads-west.s3.us-west-2.amazonaws.com/assets/bis-logo.png"
+                     alt="BIS Logo" class="logo">
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="greeting-section">
+                    <h2 class="user-name">{{participant_name}}</h2>
+
+                    <!-- Updated block (b) -->
+                    <div class="violation-message">
+                        <p class="violation-text">
+                            During {{course_name}}, we could not verify your government-issued ID. 
+                            Please click <b>Resubmit</b> below to take a new photo of yourself and your government-issued ID.
+                        </p>
+                    </div>
+
+                    <a href="{{Link}}" class="resubmit-button">Resubmit</a>
+                </div>
+
+                <!-- Updated block (c) -->
+                <div class="help-section">
+                    <p class="help-text">
+                        Having trouble? Please contact our Support Team by phoning 
+                        <b>1-866-416-1660</b> or emailing 
+                        <a href="mailto:{{supportMail}}"><b>{{supportMail}}</b></a>. 
+                        We will be happy to assist you.
+                    </p>
+                </div>
+            </div>
+
+            <!-- New Footer (d) -->
+            <div class="footer">
+                <p>
+                    Have a question? Contact our Support Team by phoning 
+                    <b>1-866-416-1660</b> or emailing 
+                    <a href="mailto:{{supportMail}}"><b>{{supportMail}}</b></a>.
+                </p>
+
+                <p>BIS Safety Software | 261 Seneca Road, Sherwood Park AB T8A 4G6, Canada</p>
+
+                <p>
+                    <a href="{{termsUrl}}">Terms and Conditions</a> |
+                    <a href="{{privacyUrl}}">Privacy Policy</a>
+                </p>
+
+                <p>This email was sent to {{EmailAddress}}. This is an automated message. Please do not reply to this email.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
