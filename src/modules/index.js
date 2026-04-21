@@ -17,7 +17,6 @@ const noteRoutes           = require("./proctoringNote/proctoringNote.router");
 const reportRoutes         = require("./report/report.router");
 const redisRoutes          = require("./redis/redis.router");
 const jobRoutes            = require("./job/job.router");
-const bisLogsRoutes        = require("./bisCommunicateLog/bisCommunicateLog.router");
 
 router.use("/auth",              authRoutes);
 router.use("/users",             userRoutes);
@@ -35,6 +34,5 @@ router.use("/notes",             noteRoutes);
 router.use("/reports",           reportRoutes);
 router.use("/redis",             redisRoutes);
 router.use("/jobs",              jobRoutes);
-router.use("/bis-logs",          bisLogsRoutes);
 
 module.exports = router;
