@@ -1,7 +1,6 @@
 const db = require("../../models/models");
 const { Op } = require("sequelize");
 const axios = require("axios");
-const { createCommunicationLog } = require("../services/biscommunicationlog.service");
 
 const username = process.env.WEBHOOK_USERNAME;
 const password = process.env.WEBHOOK_PASSWORD;
@@ -36,17 +35,14 @@ async function postFinalAiResult(requestData) {
 
     return axios.post(url, payload, { headers })
       .then(async (response) => {
-        await createCommunicationLog({ organization_id, session_id, url, payload: JSON.stringify(payload), header: JSON.stringify(headers), response: JSON.stringify(response.data), action: "postFinalAiResult" });
         return true;
       })
       .catch(async (err) => {
-        await createCommunicationLog({ organization_id, session_id, url, payload: JSON.stringify(payload), header: JSON.stringify(headers), response: null, action: "postFinalAiResult_error" });
         console.error("Axios error in postFinalAiResult:", err.message);
         return false;
       });
   } catch (error) {
     console.error("Unexpected error postFinalAiResult:", error);
-    await createCommunicationLog({ organization_id, session_id, url, payload: null, header: JSON.stringify(headers), response: null, action: "postFinalAiResult_error" });
     return false;
   }
 }
@@ -60,17 +56,14 @@ async function sendBisSafetyWebhook(organization_id, data) {
   try {
     return axios.post(url, data, { headers })
       .then(async (response) => {
-        await createCommunicationLog({ organization_id, session_id: data?.id || null, url, payload: JSON.stringify(data), header: JSON.stringify(headers), response: JSON.stringify(response.data), action: data.action || null });
         return true;
       })
       .catch(async (err) => {
-        await createCommunicationLog({ organization_id, session_id: data?.id || null, url, payload: JSON.stringify(data), header: JSON.stringify(headers), response: null, action: "sendBisSafetyWebhook_error" });
         console.error("Error in axios POST:", err.message);
         return false;
       });
   } catch (error) {
     console.error("Unexpected error sendBisSafetyWebhook:", error);
-    await createCommunicationLog({ organization_id, session_id: data?.id || null, url, payload: JSON.stringify(data), header: JSON.stringify(headers), response: null, action: "sendBisSafetyWebhook_error" });
     return false;
   }
 }
