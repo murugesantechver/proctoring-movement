@@ -63,12 +63,7 @@ async function fetchSecrets() {
     const command = new GetSecretValueCommand({ SecretId: secretName });
     const data = await client.send(command);
     const secret = JSON.parse(data.SecretString);
-    // const secret = {
-    //   TEST_DB_USERNAME: "postgres",
-    //   TEST_DB_PASSWORD: "BisProJsdb2025",
-    //   TEST_DB_NAME: "proctoring_tool_test",
-    //   TEST_DB_HOST: "database-1-proc.c9s2qgea4q0z.us-west-2.rds.amazonaws.com"
-    // }
+
     const map = envKeyMap[env];
     if (!map) {
       throw new Error(`No key mapping for environment: ${env}`);
