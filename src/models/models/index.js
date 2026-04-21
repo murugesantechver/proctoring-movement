@@ -24,7 +24,6 @@ const dbStore = {
   RefreshToken: undefined,
   ProctoringNote: undefined,
   Job: undefined,
-  BisCommunicationLog: undefined,
   PurgeCode: undefined,
 };
 
@@ -75,7 +74,6 @@ db.init = async () => {
   dbStore.RefreshToken = require("./refreshToken.model")(sequelize, Sequelize);
   dbStore.ProctoringNote = require("./proctoringNote.model")(sequelize, Sequelize);
   dbStore.Job = require("./job.model")(sequelize, Sequelize);
-  dbStore.BisCommunicationLog = require("./biscommunicationlog")(sequelize, Sequelize);
   dbStore.UserOtp = require("./userotp")(sequelize, Sequelize);
   dbStore.PurgeCode = require("./purgecode.model")(sequelize, Sequelize);
 
@@ -123,7 +121,6 @@ const exposedProps = [
   "RefreshToken",
   "ProctoringNote",
   "Job",
-  "BisCommunicationLog",
   "UserOtp",
   "PurgeCode",
 ];
