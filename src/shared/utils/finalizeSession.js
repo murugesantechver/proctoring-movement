@@ -5,7 +5,6 @@ const {
   createVirtualProctoringUnsuccessfulEmailContent,
   sendManualVerificationAlertEmail,
 } = require("../services/emailCreation.service");
-const { postFinalAiResult } = require("./sendResults");
 
 async function finalizeSession(session_id) {
   const pendingKey = `session:${session_id}:pending_requests`;
@@ -43,7 +42,6 @@ async function finalizeSession(session_id) {
       organisationId: session.organization_id,
       course: session.course.name || "Unknown Course",
     });
-    await postFinalAiResult({ session_id, organization_id: session.organization_id });
   } else if (finalStatus === "invalid") {
     await createVirtualProctoringUnsuccessfulEmailContent({
       userId: session.user.id,
@@ -51,7 +49,6 @@ async function finalizeSession(session_id) {
       organisationId: session.organization_id,
       course: session.course.name || "Unknown Course",
     });
-    await postFinalAiResult({ session_id, organization_id: session.organization_id });
   }
 
   const aiResultReSubmitted = await db.AIResult.findOne({

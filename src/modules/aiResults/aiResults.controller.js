@@ -3,7 +3,6 @@ const { resolveSession } = require("../../shared/utils/sessionIdResolver");
 const { createProctoringNote } = require("../../shared/utils/proctoringNote");
 const { Op } = require("sequelize");
 const { createVirtualProctoringUpdateEmailContent } = require("../../shared/services/emailCreation.service");
-const { postFinalAiResult } = require("../../shared/utils/sendResults");
 
 exports.updateFeedback = async (req, res) => {
   const { id } = req.params;
@@ -84,7 +83,6 @@ exports.updateIdStatus = async (req, res) => {
       const session = await db.Session.findOne({ where: { id: resolvedSessionId }, include: [{ model: db.User, as: "user", attributes: ["first_name", "last_name", "email", "user_name", "id", ["id", "user_id"]] }, { model: db.Course, as: "course", attributes: ["id", "name"] }] });
       await createVirtualProctoringUpdateEmailContent({ userId: session.user.id, sessionId: session.external_session_id || session.id, organisationId: session.organization_id, course: session.course.name || "Unknown Course", reason: null });
     }
-    await postFinalAiResult({ session_id: resolvedSessionId, organization_id, over_ride: true });
     return res.status(200).json({ success: true, aiResult });
   } catch (error) { console.error("Error updating id_status:", error); return res.status(500).json({ success: false, message: "Failed to update id_status", error: error.message }); }
 };

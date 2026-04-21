@@ -3,7 +3,6 @@ const { v4: uuidv4 } = require("uuid");
 const { addNote } = require("../../shared/utils/proctoringNotes");
 const db = require("../../models/models");
 const sequelizeInstance = db.sequelize;
-const { sendBisSafetyWebhook } = require("../../shared/utils/sendResults");
 const { createProctoringNote } = require("../../shared/utils/proctoringNote");
 
 const getPurgeCodeForOrganization = async (organization_id) => {
@@ -27,7 +26,6 @@ exports.createProctoringKey = async (req, res) => {
     await db.AuditLog.create({ admin_id: created_by, organization_id, action: "CREATE_KEY", action_type: "CREATE", affected_entity: "ProctoringKey", description: `Admin ${created_by} created key '${name}' with type '${proctoring_type}' for Org ${organization_id}.` });
     await addNote({ key_id, user_id: created_by, organization_id, description: `${name} was created (Key Type: ${proctoring_type}, Time: ${duration_minutes} minutes, Rules: ${ruleList}, Cost: ${cost}, Fee: ${fee}).`, source: "key_details" });
     if (description && description.trim() !== "") await addNote({ key_id, organization_id, user_id: created_by, description: `${name} description was added or updated: ${description.trim()}.`, source: "key_details" });
-    await sendBisSafetyWebhook(organization_id, { action: "add", id: newKey.id || null, name, proctoring_type, duration_minutes, description, organization_id, key_id, fee, cost, created_by, created_at: new Date().toISOString(), expires_at });
     res.status(201).json({ message: "Proctoring Key created successfully", key: newKey });
   } catch (error) { console.error("Error creating proctoring key:", error); res.status(500).json({ error: "Failed to create key" }); }
 };
@@ -63,7 +61,6 @@ exports.revokeProctoringKey = async (req, res) => {
     else if (key?.proctoring_type_ids.length) { const ruleRecords = await db.ProctoringType.findAll({ where: { id: key.proctoring_type_ids }, attributes: ["name"] }); rules = ruleRecords.map(r => r.name).join(", "); }
     await createProctoringNote({ commentKey: "key_deleted", source: "key_details", user_id: admin_id, organization_id: key.organization_id, messages: { KeyName: key.name, KeyType: key.proctoring_type, Cost: key.cost, Fee: key.fee, TimeMinutes: key.duration_minutes, Rules: rules || "Name and Photo ID Match, Remain in Camera View" } });
     await db.AuditLog.create({ admin_id, organization_id: key.organization_id, action: "REVOKE_KEY", action_type: "UPDATE", affected_entity: "ProctoringKey", description: `Admin ${admin_id} revoked Proctoring Key ${key_id}.` });
-    await sendBisSafetyWebhook(key.organization_id, { action: "delete", id: key.id || null, name: key.name, proctoring_type: key.proctoring_type, duration_minutes: key.duration_minutes, description: key.description, organization_id: key.organization_id, key_id: key.key_id, fee: key.fee, cost: key.cost, expires_at: key.expires_at });
     res.json({ message: "Key revoked successfully" });
   } catch (error) { console.error("Error revoking key:", error); res.status(500).json({ error: "Failed to revoke key", message: error.message }); }
 };
@@ -85,7 +82,6 @@ exports.editProctoringKey = async (req, res) => {
     const ruleList = ruleNames.length > 0 ? ruleNames.join(", ") : "None";
     await addNote({ key_id, user_id: updated_by, organization_id, description: `${name} was updated (Key Type: ${proctoring_type}, Time: ${duration_minutes} minutes, Rules: ${ruleList}, Cost: ${cost}, Fee: ${fee}).`, source: "key_details" });
     await db.AuditLog.create({ admin_id: updated_by, organization_id, action: "UPDATE_KEY", action_type: "UPDATE", affected_entity: "ProctoringKey", description: `Admin ${updated_by} updated key '${name}' (ID: ${key_id}) for Org ${organization_id}` });
-    await sendBisSafetyWebhook(organization_id, { action: "update", id: key.id, name, proctoring_type, duration_minutes, description, organization_id, key_id: key.key_id, fee, cost, created_by: key.created_by, created_at: key.created_at, expires_at });
     res.json({ message: "Proctoring Key updated successfully", key });
   } catch (error) { console.error("Error updating proctoring key:", error); res.status(500).json({ error: "Failed to update key" }); }
 };

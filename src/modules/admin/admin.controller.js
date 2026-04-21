@@ -9,7 +9,6 @@ const { createProctoringNote } = require("../../shared/utils/proctoringNote");
 const { createVirtualProctoringUpdateEmailContent, testMailSend, createVirtualProctoringOnPendingUpdateEmailContent, createVirtualProctoringOffPendingUpdateEmailContent, courseCompleteEmail, createInvalidProofEmailContent } = require("../../shared/services/emailCreation.service");
 const { getSecrets } = require("../../shared/utils/getSecrets");
 // const { issueCloudFrontSignedUrl } = require("../../shared/utils/cloudfrontSignedUrls");
-const { postFinalAiResult } = require("../../shared/utils/sendResults");
 
 exports.getSettings = async (req, res) => {
   try {
@@ -64,7 +63,6 @@ exports.overrideSession = async (req, res) => {
     const proctoringKeyDetails = await db.ProctoringKey.findOne({ where: { key_id: session.key_id } });
     await createProctoringNote({ commentKey: "invalid_proctor_full_override", session_id: resolvedSessionId, source: "participant_view", user_id: admin_id, messages: { KeyName: proctoringKeyDetails.name, SessionID: resolvedSessionId, Reason: reason } });
     let mail = await createVirtualProctoringUpdateEmailContent({ userId: session.user.id, sessionId: session.external_session_id || session.id, organisationId: session.organization_id, course: session.course.name || "Unknown Course", reason: reason || "No reason provided" });
-    await postFinalAiResult({ session_id: resolvedSessionId, organization_id, over_ride: true });
     return res.json({ message: "Session overridden successfully", session_id, mail });
   } catch (error) { console.error("Error overriding session:", error); res.status(500).json({ error: "Failed to override session" }); }
 };

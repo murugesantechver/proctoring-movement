@@ -8,7 +8,6 @@ const { initializeSharedServices } = require("./init");
 const { initializeWebSocket } = require("./shared/utils/websocket");
 const startWatchdog = require("./shared/utils/watchdog");
 const cron = require("node-cron");
-const { deleteS3Frames30Days, deleteS3Frames2Years, deleteS3Frames213Days } = require("./shared/utils/awsS3Cleanup");
 
 (async () => {
   try {
@@ -61,18 +60,6 @@ const { deleteS3Frames30Days, deleteS3Frames2Years, deleteS3Frames213Days } = re
 
     await initializeWebSocket(server);
     startWatchdog();
-
-    cron.schedule(
-      "0 2 * * *",
-      async () => {
-        console.log("[CRON] S3 cleanup started");
-        await deleteS3Frames30Days();
-        await deleteS3Frames2Years();
-        await deleteS3Frames213Days();
-        console.log("[CRON] S3 cleanup finished");
-      },
-      { timezone: "America/Toronto" }
-    );
   } catch (err) {
     console.error("Fatal startup error:", err);
     process.exit(1);
