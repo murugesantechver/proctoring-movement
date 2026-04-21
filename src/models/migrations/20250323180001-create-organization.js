@@ -8,7 +8,7 @@ module.exports = {
       industry: { type: Sequelize.STRING, allowNull: true },
       subscription_id: { 
         type: Sequelize.INTEGER, 
-        allowNull: false, 
+        allowNull: true, 
         //references: { model: "Subscriptions", key: "id" },
         onDelete: "SET NULL"
       },
