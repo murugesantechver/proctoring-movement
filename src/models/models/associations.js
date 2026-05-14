@@ -8,7 +8,11 @@ module.exports = (db) => {
       CourseAssignment,
       Organization,
       ProctoringNote,
-      PurgeCode
+      PurgeCode,
+      Plan,
+      Payment,
+      Subscription,
+      Invoice,
     } = db;
   
 
@@ -128,6 +132,42 @@ Organization.hasMany(PurgeCode, {
   foreignKey: 'organization_id',
   as: 'purgeCodes',
 });
+
+// ── Payment associations ──────────────────────────────────────────────────
+
+// Plan <-> Payment
+Plan.hasMany(Payment, { foreignKey: 'plan_id', as: 'payments' });
+Payment.belongsTo(Plan, { foreignKey: 'plan_id', as: 'plan' });
+
+// Organization <-> Payment
+Organization.hasMany(Payment, { foreignKey: 'organization_id', as: 'payments' });
+Payment.belongsTo(Organization, { foreignKey: 'organization_id', as: 'organization' });
+
+// Organization <-> Subscription
+Organization.hasMany(Subscription, { foreignKey: 'organization_id', as: 'subscriptions' });
+Subscription.belongsTo(Organization, { foreignKey: 'organization_id', as: 'organization' });
+
+// Plan <-> Subscription
+// NOTE: alias is 'planDetails' not 'plan' — Subscription model already has a column named 'plan'
+// Using 'plan' as both a column and association alias causes a Sequelize naming collision
+Plan.hasMany(Subscription, { foreignKey: 'plan_id', as: 'subscriptions' });
+Subscription.belongsTo(Plan, { foreignKey: 'plan_id', as: 'planDetails' });
+
+// Payment <-> Subscription (payment that activated this subscription)
+Payment.hasOne(Subscription, { foreignKey: 'payment_id', as: 'subscription' });
+Subscription.belongsTo(Payment, { foreignKey: 'payment_id', as: 'payment' });
+
+// Organization <-> Invoice
+Organization.hasMany(Invoice, { foreignKey: 'organization_id', as: 'invoices' });
+Invoice.belongsTo(Organization, { foreignKey: 'organization_id', as: 'organization' });
+
+// Subscription <-> Invoice
+Subscription.hasMany(Invoice, { foreignKey: 'subscription_id', as: 'invoices' });
+Invoice.belongsTo(Subscription, { foreignKey: 'subscription_id', as: 'subscription' });
+
+// Payment <-> Invoice
+Payment.hasMany(Invoice, { foreignKey: 'payment_id', as: 'invoices' });
+Invoice.belongsTo(Payment, { foreignKey: 'payment_id', as: 'payment' });
 
 };
   

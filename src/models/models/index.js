@@ -25,6 +25,9 @@ const dbStore = {
   ProctoringNote: undefined,
   Job: undefined,
   PurgeCode: undefined,
+  Plan: undefined,
+  Payment: undefined,
+  Invoice: undefined,
 };
 
 let inited = false;
@@ -76,6 +79,9 @@ db.init = async () => {
   dbStore.Job = require("./job.model")(sequelize, Sequelize);
   dbStore.UserOtp = require("./userotp")(sequelize, Sequelize);
   dbStore.PurgeCode = require("./purgecode.model")(sequelize, Sequelize);
+  dbStore.Plan = require("./plan.model")(sequelize, Sequelize);
+  dbStore.Payment = require("./payment.model")(sequelize, Sequelize);
+  dbStore.Invoice = require("./invoice.model")(sequelize, Sequelize);
 
   // Setup associations (if any)
   require("./associations")(dbStore);
@@ -123,6 +129,9 @@ const exposedProps = [
   "Job",
   "UserOtp",
   "PurgeCode",
+  "Plan",
+  "Payment",
+  "Invoice",
 ];
 
 // Define getters on publicExport that read from dbStore
